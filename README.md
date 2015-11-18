@@ -1,4 +1,5 @@
 # Hannibal
+Checks JSON against a set of rules (schema or plan). Useful for defining APIs and interfaces.
 
 ![circleci](https://circleci.com/gh/oliverbrooks/hannibal.png?style=shield)
 ![Dependency Status](https://david-dm.org/oliverbrooks/hannibal.svg)
@@ -7,8 +8,14 @@
 ![love it when a plan comes together](https://images.rapgenius.com/530583e79e4fc7f75855995d511e185c.400x294x1.jpg)
 
 
-## What's it for?
-Checking a value against a set of rules (schema or plan). Useful for defining APIs and interfaces. We primarily use it to check and handle data coming into and out from our and other APIs as well as to create a lightweight ORM.
+## Install
+To install
+
+    npm i hannibal --save
+
+
+## Try it
+You can try it now over [here](http://pearlshare.github.io/hannibal#try_it)
 
 
 ## Objectives
