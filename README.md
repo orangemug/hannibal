@@ -19,13 +19,12 @@ You can try it now over [here](http://pearlshare.github.io/hannibal#try_it) or r
 
 
 ## Objectives
-Validate an object, array or primitive and provide clear error reporting.
+The objectives are
 
-Easily extensible functionality using simple JavaScript.
-
-Provide a handy set of common validations such as min/max values, regex and enums to get going quickly but without going overboard.
-
-Be fast and lightweight.
+ * Validate an object, array or primitive and provide clear error reporting.
+ * Easily extensible functionality using simple JavaScript.
+ * Provide a handy set of common validations such as min/max values, regex and enums to get going quickly but without going overboard.
+ * Be fast and lightweight.
 
 
 ## Basic usage
