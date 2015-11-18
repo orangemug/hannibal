@@ -1,0 +1,4 @@
+[submodule "_includes"]
+	path = _includes
+	url = https://github.com/pearlshare/hannibal
+	branch = master

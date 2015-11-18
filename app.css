@@ -1,0 +1,107 @@
+header h1 {
+  font-family: 'Stardos Stencil', cursive;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 50px;
+}
+
+.reponame {
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+}
+
+.version {
+  position: absolute;
+  right: -12px;
+  bottom: 0px;
+  font-size: 14px;
+}
+
+h2, h3 {
+  font-family: 'Stardos Stencil', cursive;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 1em;
+}
+
+h1:first-child, h2:first-child, h3:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.content {
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: rgb(185, 0, 0);
+  color: white;
+  position: relative;
+  overflow: auto;
+  text-align: center;
+  padding: 80px 0;
+}
+
+pre code {
+  display: block;
+  padding: 8px;
+}
+
+strong {
+  font-weight: 500;
+}
+
+header code {
+  background-color: rgba(255,255,255,0.3);
+  padding: 4px 8px;
+  border: solid 1px #CE6E6E;
+}
+
+code {
+  /* background-color: rgba(255,255,255,0.3); */
+  border: solid 1px rgb(228, 228, 228);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+a {
+  color: inherit;
+}
+
+footer {
+  background-color: rgb(185, 0, 0);
+  color: white;
+  padding: 12px;
+}
+
+footer ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+footer ul li {
+  display: inline;
+}
+
+footer ul li:after {
+  content: "-";
+  margin: 4px;
+}
+
+footer ul li:last-child::after {
+  display: none;
+}
