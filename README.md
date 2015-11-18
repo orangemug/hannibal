@@ -15,7 +15,7 @@ To install
 
 
 ## Try it
-You can try it now over [here](http://pearlshare.github.io/hannibal#try_it)
+You can try it now over [here](http://pearlshare.github.io/hannibal#try_it) or read on
 
 
 ## Objectives
