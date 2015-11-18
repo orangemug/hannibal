@@ -19,45 +19,7 @@
       <code>npm install hannibal</code>
     </header>
 
-    <script src="https://embed.tonicdev.com" data-element-id="my-element"></script>
-
-
     <div class="content">
-
-      <h2>Install</h2>
-      <p>
-      Some text look at this...and some <strong>bold text</strong> and some <em>em</em> and some <code>inline code</code> oooh
-      </p>
-      <pre><code>var foo = 3;</code></pre>
-      <p>
-        Some text look at this...
-      </p>
-
-      <h2>Try it</h2>
-      <p>Try it in the editor below</p>
-      <!-- anywhere else on your page -->
-      <div id="my-element">
-var Hannibal = require("hannibal");
-var hannibal = new Hannibal();
-
-// Create a validator by adding a schema
-var validator = hannibal.create({
-  type: "object",
-  schema: {
-    name: {type: "string"},
-    age: {type: "number"}
-  }
-});
-
-// Check a valid user
-var rslt = validator({
-  name: "John Smith",
-  age: "arrrgh"
-});
-
-console.log(rslt);
-      </div>
-
       {% capture my_include %}{% include README.md %}{% endcapture %}
       {{ my_include | markdownify }}
     </div>
@@ -75,7 +37,27 @@ console.log(rslt);
 
 
     <!-- scripts -->
-    <script type="text/javascript" src="app.js"></script>
+    <script src="https://embed.tonicdev.com"></script>
+    <script>
+      var els = document.querySelectorAll("pre");
+      for(var i=0; i<els.length; i++) {
+        var el = els[i];
+        (function(el) {
+          el.addEventListener("click", function() {
+            var code = el.innerText;
+            el.innerText = "";
+            var notebook = Tonic.createNotebook({
+              // the parent element for the new notebook
+              element: el,
+              source: code,
+              onLoad: function() {
+                el.classList.add("tonic");
+              }
+            })
+          })
+        })(el);
+      }
+    </script>
   </body>
 </html>
 
