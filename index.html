@@ -70,12 +70,14 @@
             } else {
               el.classList.add("tonic--pending");
 
-              var code = "var assert = require(\"assert\");\n\n" + el.innerText;
+              var code = "var assert = require(\"assert\");\n\n" + el.querySelector("code").innerText;
+
               var notebook = Tonic.createNotebook({
                 // the parent element for the new notebook
                 element: tmpEl,
-                source: code,
+                source: "",
                 onLoad: function() {
+                  notebook.setSource(code);
                   el.classList.remove("tonic--pending");
                   el.classList.add("tonic");
                 }
