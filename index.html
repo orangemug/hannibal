@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Hannibal</title>
     <link href='https://fonts.googleapis.com/css?family=Stardos+Stencil:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="app.css">
@@ -43,17 +44,44 @@
       for(var i=0; i<els.length; i++) {
         var el = els[i];
         (function(el) {
+          var btnEl = document.createElement("a");
+          var openEl = document.createElement("span");
+          openEl.innerHTML = "Open REPL";
+          openEl.classList.add("edit-button--open");
+
+          var closeEl = document.createElement("span");
+          closeEl.innerHTML = "Close REPL";
+          closeEl.classList.add("edit-button--close");
+
+          btnEl.appendChild(openEl)
+          btnEl.appendChild(closeEl)
+          btnEl.classList.add("edit-button");
+
+          var isOpen = false;
+
+          var tmpEl = document.createElement("div");
+          el.insertBefore(tmpEl, el.firstElementChild);
+
+          el.insertBefore(btnEl, el.firstElementChild);
           el.addEventListener("click", function() {
-            var code = el.innerText;
-            el.innerText = "";
-            var notebook = Tonic.createNotebook({
-              // the parent element for the new notebook
-              element: el,
-              source: code,
-              onLoad: function() {
-                el.classList.add("tonic");
-              }
-            })
+            if(isOpen) {
+              tmpEl.innerHTML = "";
+              el.classList.remove("tonic");
+            } else {
+              el.classList.add("tonic--pending");
+
+              var code = "var assert = require(\"assert\");\n\n" + el.innerText;
+              var notebook = Tonic.createNotebook({
+                // the parent element for the new notebook
+                element: tmpEl,
+                source: code,
+                onLoad: function() {
+                  el.classList.remove("tonic--pending");
+                  el.classList.add("tonic");
+                }
+              })
+            }
+            isOpen = !isOpen;
           })
         })(el);
       }

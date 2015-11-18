@@ -59,13 +59,33 @@ header {
   padding: 80px 0;
 }
 
+pre {
+  border: solid 1px rgb(228, 228, 228);
+  position: relative;
+  overflow: visible;
+}
+
+pre iframe {
+  display: none;
+}
+
 pre code {
   display: block;
   padding: 8px;
+  border: none;
 }
 
 pre.tonic {
   padding-left: 2.4em;
+  border: none;
+}
+
+pre.tonic iframe {
+  display: block;
+}
+
+pre.tonic code {
+  display: none;
 }
 
 strong {
@@ -119,4 +139,84 @@ footer ul li:after {
 
 footer ul li:last-child::after {
   display: none;
+}
+
+.edit-button {
+  background-color: red;
+  color: white;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: rgb(215, 0, 0);
+}
+
+.edit-button:before {
+  content: "◐";
+  visibility: hidden;
+  width: 0;
+  display: inline-block;
+}
+
+.tonic--pending .edit-button:before {
+  width: auto;
+  visibility: visible;
+  font-family: monospace;
+  margin-right: 0.4em;
+  -webkit-animation: rotating 0.5s linear infinite;
+  -moz-animation:    rotating 0.5s linear infinite;
+  -ms-animation:     rotating 0.5s linear infinite;
+  -o-animation:      rotating 0.5s linear infinite;
+  animation:         rotating 0.5s linear infinite;
+}
+
+.edit-button--close {
+  display: none;
+}
+
+.tonic .edit-button--close {
+  display: inline;
+}
+
+.tonic .edit-button--open {
+  display: none;
+}
+
+.edit-button:hover {
+  background-color: rgb(185, 0, 0);
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
