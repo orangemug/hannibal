@@ -1,10 +1,10 @@
 module.exports = {
-  min: function minNumber (value, min) {
+  minimum: function minNumber (value, min) {
     if (value < min) {
       throw new Error("number is too small, min: " + min + " and was: " + value);
     }
   },
-  max: function maxNumber (value, max) {
+  maximum: function maxNumber (value, max) {
     if (value > max) {
       throw new Error("number is too big, max: " + max + " and was: " + value);
     }
