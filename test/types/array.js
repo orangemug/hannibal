@@ -26,7 +26,7 @@ describe("validator(array)", function () {
   describe("nested array of strings", function () {
     var testSchema = hannibal.create({
       type: "array",
-      schema: {
+      items: {
         type: "string"
       }
     });
@@ -49,7 +49,7 @@ describe("validator(array)", function () {
   describe("nested array of numbers", function () {
     var testSchema = hannibal.create({
       type: "array",
-      schema: {
+      items: {
         type: "number"
       }
     });
@@ -72,9 +72,9 @@ describe("validator(array)", function () {
   describe("nested array of arrays", function () {
     var testSchema = hannibal.create({
       type: "array",
-      schema: {
+      items: {
         type: "array",
-        schema: {
+        items: {
           type: "string"
         }
       }
@@ -99,9 +99,9 @@ describe("validator(array)", function () {
   describe("nested array of objects", function () {
     var testSchema = hannibal.create({
       type: "array",
-      schema: {
+      items: {
         type: "object",
-        schema: {
+        properties: {
           name: {
             type: "string"
           },

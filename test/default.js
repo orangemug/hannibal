@@ -86,7 +86,7 @@ describe("validator default", function () {
 
   describe("nested object default", function () {
     var testSchema = hannibal.create({
-      schema: {
+      properties: {
         name: {
           type: "string",
           default: "Face"

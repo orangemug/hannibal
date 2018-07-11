@@ -6,12 +6,12 @@ var hannibal = new Hannibal({
 
 var testSchema = hannibal.create({
   type: "object",
-  schema: {
+  properties: {
     friends: {
       type: "array",
-      schema: {
+      items: {
         type: "object",
-        schema: {
+        properties: {
           name: {
             type: "string",
             required: true,
@@ -21,16 +21,16 @@ var testSchema = hannibal.create({
           },
           contacts: {
             type: "array",
-            schema: {
+            items: {
               type: "object",
-              schema: {
+              properties: {
                 value: {
                   type: "string",
                   transforms: ["toString", "trim"],
                   required: true,
                   validators: {
-                    min: 9,
-                    max: 13
+                    minItems: 9,
+                    maxItems: 13
                   }
                 },
                 type: {

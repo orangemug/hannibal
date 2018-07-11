@@ -28,7 +28,7 @@ describe("validator(object)", function () {
   describe("nested object", function () {
     var testSchema = hannibal.create({
       type: "object",
-      schema: {
+      properties: {
         name: {
           type: "string"
         }
@@ -59,13 +59,13 @@ describe("validator(object)", function () {
   describe("deeply nested object", function () {
     var testSchema = hannibal.create({
       type: "object",
-      schema: {
+      properties: {
         name: {
           type: "string"
         },
         address: {
           type: "object",
-          schema: {
+          properties: {
             street: {
               type: "string"
             }

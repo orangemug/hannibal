@@ -6,7 +6,7 @@ var hannibal = new Hannibal({
 
 var testSchema = hannibal.create({
   type: "object",
-  schema: {
+  properties: {
     name: {
       type: "string",
       required: true
@@ -15,18 +15,18 @@ var testSchema = hannibal.create({
       type: "array",
       required: true,
       validators: {
-        min: 1
+        minItems: 1
       },
-      schema: {
+      items: {
         type: "object",
-        schema: {
+        properties: {
           value: {
             type: "string",
             transforms: ["toString", "trim"],
             required: true,
             validators: {
-              min: 9,
-              max: 13
+              minItems: 9,
+              maxItems: 13
             }
           },
           type: {
@@ -117,7 +117,7 @@ describe("errors", function () {
       };
       var result = testSchema(user);
       expect(result.error).to.be.a("object");
-      expect(result.error.contacts).to.be.an("object").and.have.keys("min");
+      expect(result.error.contacts).to.be.an("object").and.have.keys("minItems");
     });
   });
 });

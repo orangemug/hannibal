@@ -10,7 +10,7 @@ describe("validator referenced schemas", function () {
       expect(hannibal.create.bind(hannibal)).withArgs({
         id: "main",
         type: "object",
-        schema: {
+        properties: {
           one: {
             type: "string"
           },
@@ -18,7 +18,7 @@ describe("validator referenced schemas", function () {
             type: "string"
           },
           recurse: {
-            ref: "main"
+            $ref: "main"
           }
         }
       }).to.not.throwError();
@@ -28,7 +28,7 @@ describe("validator referenced schemas", function () {
       expect(hannibal.create.bind(hannibal)).withArgs({
         id: "main",
         type: "object",
-        schema: {
+        properties: {
           one: {
             type: "string"
           },
@@ -37,8 +37,8 @@ describe("validator referenced schemas", function () {
           },
           recurse: {
             type: "array",
-            schema: {
-              ref: "main"
+            items: {
+              $ref: "main"
             }
           }
         }
@@ -49,7 +49,7 @@ describe("validator referenced schemas", function () {
       expect(hannibal.create.bind(hannibal)).withArgs({
         id: "main",
         type: "object",
-        schema: {
+        properties: {
           one: {
             id: "main", // Duplicate named schema
             type: "string"
@@ -58,7 +58,7 @@ describe("validator referenced schemas", function () {
             type: "string"
           },
           recurse: {
-            ref: "main"
+            $ref: "main"
           }
         }
       }).to.throwError(function (err) {
@@ -70,7 +70,7 @@ describe("validator referenced schemas", function () {
       expect(hannibal.create.bind(hannibal)).withArgs({
         id: "main",
         type: "object",
-        schema: {
+        properties: {
           one: {
             type: "string"
           },
@@ -80,8 +80,8 @@ describe("validator referenced schemas", function () {
           recurse: {
             type: "array",
             id: "main",
-            schema: {
-              ref: "main"
+            items: {
+              $ref: "main"
             }
           }
         }
@@ -92,7 +92,7 @@ describe("validator referenced schemas", function () {
       expect(hannibal.create.bind(hannibal)).withArgs({
         id: "main",
         type: "object",
-        schema: {
+        properties: {
           one: {
             type: "string"
           },
@@ -101,7 +101,7 @@ describe("validator referenced schemas", function () {
           },
           three: {
             type: "array",
-            schema: {
+            items: {
               type: "object",
               id: "main"
             }
@@ -116,7 +116,7 @@ describe("validator referenced schemas", function () {
     var testSchema = hannibal.create({
       id: "main",
       type: "object",
-      schema: {
+      properties: {
         one: {
           type: "string",
           required: true
@@ -126,7 +126,7 @@ describe("validator referenced schemas", function () {
           required: true
         },
         recurse: {
-          ref: "main"
+          $ref: "main"
         }
       }
     });
@@ -202,9 +202,9 @@ describe("validator referenced schemas", function () {
     var testSchema = hannibal.create({
       id: "main",
       type: "array",
-      schema: {
+      items: {
         type: "object",
-        schema: {
+        properties: {
           one: {
             type: "string",
             required: true
@@ -214,7 +214,7 @@ describe("validator referenced schemas", function () {
             required: true
           },
           recurse: {
-            ref: "main"
+            $ref: "main"
           }
         }
       }

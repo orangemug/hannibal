@@ -1,8 +1,8 @@
-// require("./default");
+require("./default");
 // require("./examples");
-// require("./errors");
+require("./errors");
 // require("./transforms");
-// require("./types");
+require("./types");
 // require("./validator");
 // require("./validators");
 // require("./readme");
